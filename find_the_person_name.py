@@ -6,8 +6,8 @@ name = "-" #You can either use name+path1 to compound a path or copy full of the
 path1 = "-"+name+".jpg"
 
 path = "-"     #database of face
-sample = face_recognition.load_image_file(path1)
-sample_encode = face_recognition.face_encodings(sample)[0]
+find = face_recognition.load_image_file(path1)
+find_encode = face_recognition.face_encodings(sample)[0]
 print(path1)
 
 known_names=[] 
@@ -20,7 +20,7 @@ for i in range(len(known_names)):
     
     unknown_face_encoding = face_recognition.face_encodings(To_compare)[0]
 
-    results = face_recognition.compare_faces([sample_encode], unknown_face_encoding, tolerance=0.6)
+    results = face_recognition.compare_faces([find_encode], unknown_face_encoding, tolerance=0.6)
     
     if False in results:
         pass
